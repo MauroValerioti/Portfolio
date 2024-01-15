@@ -1,0 +1,65 @@
+#WARNING! yaml NO PERMITE TABULACIONES O DARA ERROR!
+#configuracion server ppal(default).
+server:
+ port: 8080
+logging:
+ level:
+  org:
+   springframework:
+    jdbc:
+     datasource:
+      init:
+       ScriptUtils: "debug"
+spring:
+ h2:
+  console:
+   enabled: true #para activar el acceso a la consola H2
+ datasource:
+  url: "jdbc:h2:mem:testdb"
+ jpa:
+  hibernate:
+   ddl-auto: "none" #para que hibernate no genere el esquema y que tome el que hicimos nosotros.
+ data:
+  rest:
+   base-path: "api/rest"
+management:
+ endpoints: #para todos los endpoints 
+  web:
+   exposure:
+    include: "*" #expone todas las funcionalidades 
+ endpoint: #para un solo endpoint
+  health: # de healt
+   roles: "USER" # para el rol de usuario solo cuando esten autorizados
+   show-details: "WHEN_AUTHORIZED" 
+---
+#configuracion server desarrollo
+spring:
+ config:
+  activate:
+   on-profile: "desarrollo"
+server:
+ port: 8081
+---
+#configuracion server pruebas
+spring:
+ config:
+   activate:
+    on-profile: "pruebas"
+server:
+ port: 8082
+---
+#configuracion server produccion
+spring:
+ config:
+   activate:
+    on-profile: "produccion"
+server:
+ port: 9000
+---
+#configuracion para RabbitMQ
+spring:
+ rabbitmq:
+  host : "localhost"
+  port: 5672 
+  username: "guest"
+  password : "guest"
