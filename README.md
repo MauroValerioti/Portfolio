@@ -1,4 +1,4 @@
-# ¡Hola, soy [Mauro]! 👋
+# ¡Hola, soy Mauro! 👋
 
 Bienvenido a mi rincón digital, donde comparto mi pasión por la tecnología y el desarrollo. Soy un Desarrollador de Software, apasionado por el desarrolo en Java.
 
