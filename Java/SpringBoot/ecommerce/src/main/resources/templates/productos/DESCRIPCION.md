@@ -1,0 +1,1 @@
+# en esta carpeta se van a almacenar las vistas para los productos.
